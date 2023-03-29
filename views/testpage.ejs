@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="/stylesheets/testpage.css">
+<script type="text/javascript" src="/javascripts/testpage.js"></script>
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=2IWszTZm"></script>
+<label for="question" class="question"> Question from Unit <%= unitNum %></label>
+<div class="answer">
+  <form action="\user\result" method="POST" onsubmit="return false" id="form">
+    <div class="answerbox">
+      <div class="section hide">
+        <label id="a" for="answer" class="answerlabel">
+          <%= data[0].chinese %>
+            <%= data[0].length %>
+              
+        </label>
+        <img src="/images/volume2.png" alt="abc" width="40" height="40" onclick="speakWord()">
+        <br></br>
+        <label id="b" for="answer" class="answerlabel">
+          <%= data[0].zhuying %>
+        </label>
+        <br></br>
+        <input type="text" rows="1" name="userAnswer" id="answer" placeholder="Type your answer" class="answerinput"
+          autocomplete="off" value='' onkeypress="getEnterKey(event)"></input>
+        <br></br>
+        <button type="button" style="visibility: hidden;" onclick="nextPage()" id="nextPageBtn">Next Question</button>
+      </div>
+      <script>
+        window.history.forward();//不給返回上一頁
+        let data = JSON.parse(`<%-JSON.stringify(data)%>`)
+        console.log(data.length)
+        var answer = document.getElementById("answer")
+        let dataArray = new Array(data.length + 1);//需更改為使用者選擇題數+1
+        for (let i = 0; i < dataArray.length; i++) {
+          dataArray[i] = new Array()
+        }
+
+        var answerArray = new Array(data.length) //需更改為使用者選擇題數
+        for (let i = 0; i < answerArray.length; i++) {
+          answerArray[i] = new Array()
+        }
+
+        //按下enter即可下一題
+        function getEnterKey(event) {
+          if (event.keyCode === 13) { //"enter" ascii = 13
+            nextPage();
+          }
+        }
+        answer.focus() //自動輸入
+        //下一題
+        var index = 0
+        function nextPage() {
+          answerArray[index][0] = data[index].wordNum; //存取單字編號
+          answerArray[index][1] = answer.value; //存取使用者輸入內容
+          answer.value = ''; //清空答案
+          answer.focus(); //自動輸入
+          if (index == data.length - 1) {
+            alert('結束答題')
+            var userAnswerJson = arrayToJson(answerArray);
+            console.log(userAnswerJson);
+            answer.style.color = "white"
+            answer.value = userAnswerJson; //送出資料內容
+            form.onsubmit = "return true" //讓資料送出
+            return
+          }
+          dataArray[index][0] = data[index + 1].chinese;
+          dataArray[index][1] = data[index + 1].length;
+          dataArray[index][2] = data[index + 1].zhuying;
+          var a = document.getElementById("a");
+          var b = document.getElementById("b");
+          a.innerHTML = dataArray[index][0] + " " + dataArray[index][1];
+          b.innerHTML = dataArray[index][2];
+          console.log(index)
+          index++;
+        }
+        function arrayToJson(ans) {
+          var arr = new Array();
+          for (i = 0; i < data.length; i++) {
+            var obj = new Object;
+            obj.wordNum = ans[i][0];
+            obj.answer = ans[i][1];
+            const returnObj = {
+              wordNum: ans[i][0],
+              answer: ans[i][1]
+            }
+            arr.push(returnObj)
+          }
+          return JSON.stringify(arr)
+        }
+
+        function toAnswerArray(arr) {
+          var arr = new Array();
+
+        }
+        function speakWord() {
+          responsiveVoice.speak(data[index].word);
+        }
+      </script>
+
+    </div>
+
+</div>
+</div>

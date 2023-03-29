@@ -1,0 +1,178 @@
+<link rel="stylesheet" href="/stylesheets/testpage.css">
+<script type="text/javascript" src="/javascripts/testpage.js"></script>
+<script src="move.js"></script>
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=2IWszTZm"></script>
+<label for="question" class="question"> Practice from Unit <%= unitNum %></label>
+<div class="answer">
+  <form action="\user\test" method="POST" onsubmit="return false" id="form">
+    <div class="answerbox">
+      <div class="section hide">
+        <label id="a" for="answer" class="answerlabel">
+          <%= data[0].word %>
+            <%= data[0].kk %>
+              <%= data[0].chinese %>
+                <%= data[0].length %>
+                  
+                  
+        </label>
+        
+        <img src="/images/volume2.png" alt="abc" width="40" height="40" onclick="speakWord()">
+        <br></br>
+        <label id="b" for="answer" class="answerlabel">
+          <%= data[0].zhuying %>
+        </label>
+        <button type="submit" style="visibility: hidden;" name="unit" value="" id="submitUnit"></button>
+        <br></br>
+        <div class=photos id="photos" style="transform: scale(0.2);"></div>        
+        <button type="button" style="visibility: hidden;" onclick="nextPage()" id="nextPageBtn">Next Question</button>
+          
+        <input type="text" rows="1" name="word" id="answer" placeholder="Type your answer" class="answerinput"
+          autocomplete="off" value="" onkeypress="getEnterKey(event)"></input> 
+          
+          <button type="submit" onclick="submitAnswer()" id="skipBtn">結束練習</button>   
+          
+                    
+        <!-- <div class="container" id="container"></div> -->
+       
+      </div>
+      
+      <input type="text" style="visibility: hidden;" name="unitNum" id="unitNum" value="<%= unitNum %>"></input>
+      <script>
+        let data = JSON.parse(`<%-JSON.stringify(data)%>`)
+        let unit="<%= unitNum%>";
+        var index = 0
+        //圖片API
+        // const accessKey = "OLvHt_wX_E_Y-89vmBte-mSfptKFXVtTTkDepcTgw7E";
+        // const query ="data[index].word";
+        // const perPage = 1;
+        // const url = `https://api.unsplash.com/search/photos?query=${query}&per_page=${perPage}`;
+        // const headers = new Headers({
+        //   "Authorization": `Client-ID ${accessKey}`
+        // });
+        // fetch(url, { headers })
+        //   .then(response => response.json())
+        //   .then(data => {
+        //     const photosDiv = document.getElementById("photos");
+        //     data.results.forEach(photo => {
+        //       const photoDiv = document.createElement("div");
+        //       const img = document.createElement("img");
+        //       img.src = photo.urls.regular;
+        //       photoDiv.appendChild(img);
+        //       photosDiv.appendChild(photoDiv);
+        //     });
+        //   })
+        //   .catch(error => console.error(error));
+        // Move('.pacman')
+        //   .add('margin-left', 200)
+        //   .end();
+        
+        console.log(data.length)
+        var answer = document.getElementById("answer")
+        var soundBtn = document.getElementById("soundBtn")
+        let dataArray = new Array(data.length + 1);
+        for (let i = 0; i < dataArray.length; i++) {
+          dataArray[i] = new Array()
+        }
+        var answerArray = new Array(data.length)
+        for (let i = 0; i < answerArray.length; i++) {
+          answerArray[i] = new Array()
+        }
+
+        // var food = document.getElementById("container")
+        // food.innerHTML = '<div class="pacman" id="pacman"></div>'
+        // for (var i = 0; i < data[index].length; i++) {
+        //   food.innerHTML += '<div class="pacmanfood"></div>'
+        // }
+
+        //按下enter即可下一題
+        function getEnterKey(event) {
+          if (event.keyCode === 13) { //"enter" ascii = 13
+            nextPage();
+          } else {
+            // document.getElementById("pacman").style.marginLeft = "200px";
+          }
+        }
+
+        answer.focus() //自動輸入
+        //下一題
+
+
+        function nextPage() {
+          answerArray[index][0] = data[index].wordNum; //存取單字編號
+          answerArray[index][1] = answer.value; //存取使用者輸入內容
+          answer.value = ''; //清空答案
+          answer.focus(); //自動輸入
+          if (!isWordCorrect(answerArray[index][1], data[index].word)) {
+            return
+          }
+          if (index == data.length - 1) {
+            alert('結束答題')
+            submitAnswer(); //送出UnitNum及題目
+            //讓資料送出
+            return
+          }
+          dataArray[index][0] = data[index + 1].chinese;
+          dataArray[index][1] = data[index + 1].length;
+          dataArray[index][2] = data[index + 1].zhuying;
+          dataArray[index][3] = data[index + 1].word;
+          var a = document.getElementById("a");
+          var b = document.getElementById("b");
+          a.innerHTML = dataArray[index][3] + " " + dataArray[index][0] + " " + dataArray[index][1];
+          b.innerHTML = dataArray[index][2];
+          
+          console.log(index)
+          index++;
+ 
+          
+        }
+        //陣列轉換Json為格式
+        function arrayToJson(ans) {
+          var arr = new Array();
+          for (i = 0; i < data.length; i++) {
+            var obj = new Object;
+            obj.wordNum = ans[i][0];
+            obj.answer = ans[i][1];
+            const returnObj = {
+              wordNum: ans[i][0]
+            }
+            arr.push(returnObj)
+          }
+          return JSON.stringify(arr)
+        }
+        //判斷學習頁面輸入是否正確
+        function isWordCorrect(answerWord, correctWord) {
+          if (answerWord != correctWord) {
+            alert("wrong")
+            return false
+          } else {
+            return true
+          }
+        }
+        //Post 單元編號
+        function submitUnitNum() {
+          var submitUnit = document.getElementById("submitUnit")
+          submitUnit.value = data[0].unitNum;
+          submitUnit.click();
+          form.onsubmit = "return true"
+          console.log("UnitNum:" + submitUnit.value);
+        }
+        function submitAnswer() {
+          //var skip = document.getElementById("skipBtn")
+          var userAnswerJson = arrayToJson(answerArray);
+          //skip.type = "submit"
+          console.log(userAnswerJson);
+          answer.style.color = "white"
+          answer.value = JSON.stringify(data); //Post資料內容
+          submitUnitNum()
+        }
+        //語音載入
+        function speakWord() {
+          responsiveVoice.speak(data[index].word);
+        }
+        //圖片
+
+
+      </script>
+    </div>
+</div>
+</div>

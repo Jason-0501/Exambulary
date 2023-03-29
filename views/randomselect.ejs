@@ -1,0 +1,29 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/selectpage.css">
+</head>
+<body>
+  <label for="select" class="select">Select Unit</label>
+  <form action="/user/randomtest" method="POST">
+    <label for="testAmount">Select Number of Questions:</label>
+    <select id="testAmount" name="testAmount">
+      <option value=1> 1</option>
+      <option value=3> Matt's 8===D</option>
+      <option value=10> 10</option>
+      <option value=30> 30</option>
+      <option value=50> 50</option>
+    </select>
+    <input type="submit" id="btn" value="Start Quiz" onmouseover="changeColor()" onmouseout="changeColorBack()">
+  </form>
+  <script>
+    function changeColor(){
+        var btn=document.getElementById("btn")
+        btn.style="background:#B0C4DE	"
+    }
+    function changeColorBack(){
+        var btn=document.getElementById("btn")
+        btn.style="background:#e7effc"
+    }
+</script>
+</body>
+</html>

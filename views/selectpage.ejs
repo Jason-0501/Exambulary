@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Select Page</title>
+    <link rel="stylesheet" href="/stylesheets/selectpage.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="/javascripts/selectpage.js" defer></script>
+    <style>
+        .download-btn-cn a {
+            background: none;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .download-btn-cn a:hover {
+            color: #343F4F;
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/user/study" method="POST" onsubmit="return false" id="form">
+        <div class="wrapper">
+            <i id="left" class="fa-solid fa-angle-left"></i>
+            <div class="carousel">
+                <img src="/unitimages/unit1.png" id="unit1" name="unitNum" value="1" title="Unit 1" alt="img" draggable="false"
+                    onclick="submitUnit(1)">
+                <img src="/unitimages/unit2.png" id="unit2"name="unitNum" value="2" title="Unit 2" alt="img" draggable="false"
+                    onclick="submitUnit(2)">
+                <img src="/unitimages/unit3.png" id="unit3"name="unitNum" value="3" title="Unit 3" alt="img" draggable="false"
+                    onclick="submitUnit(3)">
+                <img src="/unitimages/unit4.png" id="unit4"name="unitNum" value="4" title="Unit 4" alt="img" draggable="false"
+                    onclick="submitUnit(4)">
+                <img src="/unitimages/unit5.png" id="unit5"name="unitNum" value="5" title="Unit 5" alt="img" draggable="false"
+                    onclick="submitUnit(5)">
+                <img src="/unitimages/unit6.png" id="unit6"name="unitNum" value="6" title="Unit 6" alt="img" draggable="false"
+                    onclick="submitUnit(6)">
+                <img src="/unitimages/unit7.png" id="unit7"name="unitNum" value="7" title="Unit 7" alt="img" draggable="false"
+                    onclick="submitUnit(7)">
+                <img src="/unitimages/unit8.png" id="unit8"name="unitNum" value="8" title="Unit 8" alt="img" draggable="false"
+                    onclick="submitUnit(8)">
+                <img src="/unitimages/unit9.png" id="unit9"name="unitNum" value="9" title="Unit 9" alt="img" draggable="false"
+                    onclick="submitUnit(9)">
+                <img src="/unitimages/unit10.png" id="unit10"name="unitNum" value="10" title="Unit 10" alt="img" draggable="false"
+                    onclick="submitUnit(10)">
+                <img src="/unitimages/unit11.png" id="unit11"name="unitNum" value="11" title="Unit 11" alt="img" draggable="false"
+                    onclick="submitUnit(11)">
+                <img src="/unitimages/unit12.png" id="unit12"name="unitNum" value="12" title="Unit 12" alt="img" draggable="false"
+                    onclick="submitUnit(12)">
+                <img src="/unitimages/unit13.png" id="unit13"name="unitNum" value="13" title="Unit 13" alt="img" draggable="false"
+                    onclick="submitUnit(13)">
+                <img src="/unitimages/unit14.png" id="unit14"name="unitNum" value="14" title="Unit 14" alt="img" draggable="false"
+                    onclick="submitUnit(14)">
+                <img src="/unitimages/unit15.png" id="unit15"name="unitNum" value="15" title="Unit 15" alt="img" draggable="false"
+                    onclick="submitUnit(15)">
+                <img src="/unitimages/unit16.png" id="unit16"name="unitNum" value="16" title="Unit 16" alt="img" draggable="false"
+                    onclick="submitUnit(16)">
+                <img src="/unitimages/unit17.png" id="unit17"name="unitNum" value="17" title="Unit 17" alt="img" draggable="false"
+                    onclick="submitUnit(17)">
+                <img src="/unitimages/unit18.png" id="unit18"name="unitNum" value="18" title="Unit 18" alt="img" draggable="false"
+                    onclick="submitUnit(18)">
+                <img src="/unitimages/unit19.png" id="unit19"name="unitNum" value="19" title="Unit 19" alt="img" draggable="false"
+                    onclick="submitUnit(19)">
+                <br></br>
+                <img src="/unitimages/unit20.png" id="unit20"name="unitNum" value="20" title="Unit 20" alt="img" draggable="false"
+                    onclick="submitUnit(20)">
+                <img src="/unitimages/unit21.png" id="unit21"name="unitNum" value="21" title="Unit 21" alt="img" draggable="false"
+                    onclick="submitUnit(21)">
+                <img src="/unitimages/unit22.png" id="unit22"name="unitNum" value="22" title="Unit 22" alt="img" draggable="false"
+                    onclick="submitUnit(22)">
+                <img src="/unitimages/unit23.png" id="unit23"name="unitNum" value="23" title="Unit 23" alt="img" draggable="false"
+                    onclick="submitUnit(23)">
+                <img src="/unitimages/unit24.png" id="unit24"name="unitNum" value="24" title="Unit 24" alt="img" draggable="false"
+                    onclick="submitUnit(24)">
+                <img src="/unitimages/unit25.png" id="unit25"name="unitNum" value="25" title="Unit 25" alt="img" draggable="false"
+                    onclick="submitUnit(25)">
+                <img src="/unitimages/unit26.png" id="unit26"name="unitNum" value="26" title="Unit 26" alt="img" draggable="false"
+                    onclick="submitUnit(26)">
+                <img src="/unitimages/unit27.png" id="unit27"name="unitNum" value="27" title="Unit 27" alt="img" draggable="false"
+                    onclick="submitUnit(27)">
+                <img src="/unitimages/unit28.png" id="unit28"name="unitNum" value="28" title="Unit 28" alt="img" draggable="false"
+                    onclick="submitUnit(28)">
+                <img src="/unitimages/unit29.png" id="unit29"name="unitNum" value="29" title="Unit 29" alt="img" draggable="false"
+                    onclick="submitUnit(29)">
+                <img src="/unitimages/unit30.png" id="unit30"name="unitNum" value="20" title="Unit 20" alt="img" draggable="false"
+                    onclick="submitUnit(30)">
+                <img src="/unitimages/unit31.png" id="unit31"name="unitNum" value="31" title="Unit 31" alt="img" draggable="false"
+                    onclick="submitUnit(31)">
+                <img src="/unitimages/unit32.png" id="unit32"name="unitNum" value="32" title="Unit 32" alt="img" draggable="false"
+                    onclick="submitUnit(32)">
+                <img src="/unitimages/unit33.png" id="unit33"name="unitNum" value="33" title="Unit 33" alt="img" draggable="false"
+                    onclick="submitUnit(33)">
+                <img src="/unitimages/unit34.png" id="unit34"name="unitNum" value="34" title="Unit 34" alt="img" draggable="false"
+                    onclick="submitUnit(34)">
+                <img src="/unitimages/unit35.png" id="unit35"name="unitNum" value="35" title="Unit 35" alt="img" draggable="false"
+                    onclick="submitUnit(35)">
+                <img src="/unitimages/unit36.png" id="unit36"name="unitNum" value="36" title="Unit 36" alt="img" draggable="false"
+                    onclick="submitUnit(36)">
+                <img src="/unitimages/unit37.png" id="unit37"name="unitNum" value="37" title="Unit 37" alt="img" draggable="false"
+                    onclick="submitUnit(37)">
+                <img src="/unitimages/unit38.png" id="unit38"name="unitNum" value="38" title="Unit 38" alt="img" draggable="false"
+                    onclick="submitUnit(38)">
+                <br></br>
+
+            </div>
+            <i id="right" class="fa-solid fa-angle-right"></i>
+        </div>
+        <input id="testAmount" name="testAmount" style="visibility: hidden;" value=""></input>
+        <input id="unitNum" name="unitNum" style="visibility: hidden;" value=""></input>
+        <button type="submit" id="submitBtn" style="visibility: hidden;">skip</button>
+    </form>
+    <script>
+        // var unit1=document.getElementById("unit1")
+        // var unit2=document.getElementById("unit2")
+        // var unit3=document.getElementById("unit3")
+        // var unit4=document.getElementById("unit4")
+        // var unit5=document.getElementById("unit5")
+        // var unit6=document.getElementById("unit6")
+        // var unit7=document.getElementById("unit7")
+        // var unit8=document.getElementById("unit8")
+        // var unit9=document.getElementById("unit9")
+        // var unit10=document.getElementById("unit10")
+        // var unit11=document.getElementById("unit12")
+        // var unit12=document.getElementById("unit13")
+        // var unit13=document.getElementById("unit14")
+        // var unit14=document.getElementById("unit15")
+        // var unit15=document.getElementById("unit16")
+        // var unit16=document.getElementById("unit17")
+        // var unit17=document.getElementById("unit18")
+        // var unit18=document.getElementById("unit19")
+        // var unit19=document.getElementById("unit20")
+        // var unit20=document.getElementById("unit21")
+        // var unit21=document.getElementById("unit22")
+        // var unit22=document.getElementById("unit23")
+        // var unit23=document.getElementById("unit24")
+        // var unit24=document.getElementById("unit25")
+        // var unit25=document.getElementById("unit26")
+        // var unit26=document.getElementById("unit27")
+        // var unit27=document.getElementById("unit28")
+        // var unit28=document.getElementById("unit29")
+        // var unit29=document.getElementById("unit30")
+        // var unit30=document.getElementById("unit31")
+        // var unit31=document.getElementById("unit32")
+        // var unit32=document.getElementById("unit33")
+        // var unit33=document.getElementById("unit34")
+        // var unit34=document.getElementById("unit35")
+        // var unit35=document.getElementById("unit36")
+        // var unit36=document.getElementById("unit37")
+        // var unit37=document.getElementById("unit38")
+        function submitUnit(unit) {
+            var unitNum = document.getElementById("unitNum")
+            
+            unitNum.value = unit;
+            form.onsubmit = "return true";
+            submitTestAmount();
+        }
+        function submitTestAmount() {
+            var num=prompt("今天要練習幾個單字?",10)
+            if(num == null){
+                return
+            }
+            if(!isInteger(num) || num<=0){
+                alert("輸入錯誤，請輸入您想練習的題數")
+                return
+            }else{
+                var testAmount = document.getElementById("testAmount")
+                var form = document.getElementById("form")
+                var btn = document.getElementById("submitBtn")
+                testAmount.value =num;
+                btn.click();
+            }
+        }
+        function isInteger(obj){
+            return obj%1 === 0
+        }
+    </script>
+</body>
+
+</html>

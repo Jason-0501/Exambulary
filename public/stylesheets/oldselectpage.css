@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  background-color: #e7effc;
+  color: #92b4ec;
+}
+body {
+  text-align: center;
+  height: 100vh;
+  font-family: IBM Plex Mono;
+}
+.select{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    padding: 48px;
+    font-size: 36px;
+    flex-basis: 100%;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 60%;
+    padding: 20px;
+ }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Table layout</title>
+ <link rel="stylesheet" href="/stylesheets/sheetpage.css">
+</head>
+<body>
+  <center><h1>Word Sheet From Unit <%= unitNum %></h1></center>
+  <div class="filter">
+	<div id="table-container">
+		<table id="my-table">
+		  <thead>
+			<tr>
+			  <th>英文</th>
+			  <th>中文</th>
+			  <th>KK音標</th>
+			  <th>錯誤次數</th>
+			</tr>
+		  </thead>
+		  <tbody>
+		  </tbody>
+		</table>
+	  </div>
+ </body>
+ <script>
+  let data = JSON.parse(`<%-JSON.stringify(data)%>`)
+	const tableBody = document.querySelector("#my-table tbody");
+  
+for (let i = 0; i <data.length; i++) {
+  var j=0;
+  const row = document.createElement("tr");
+  const cell1 = document.createElement("td");
+  cell1.id='A'+i+j
+  const cell2 = document.createElement("td");
+  cell2.id='A'+i+(j+1)
+  const cell3 = document.createElement("td");
+  cell3.id='A'+i+(j+2)
+  const cell4 = document.createElement("td");
+  cell4.id='A'+i+(j+3)
+  row.appendChild(cell1);
+  row.appendChild(cell2);
+  row.appendChild(cell3);
+  row.appendChild(cell4);
+  tableBody.appendChild(row);
+  j++;
+}
+for(let i=0;i<data.length;i++){
+  document.getElementById('A'+i+0).innerHTML=data[i].word
+  document.getElementById('A'+i+1).innerHTML=data[i].chinese
+  document.getElementById('A'+i+2).innerHTML=data[i].kk
+  document.getElementById('A'+i+3).innerHTML=data[i].wrongNum
+  
+  
+}
+ </script>
+</html>

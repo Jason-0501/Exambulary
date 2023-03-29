@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/regipage.css">
+    <script type = "text/javascript" src="/javascripts/regipage.js"></script>
+</head>
+<body>
+    <form  id="form" name="form" action="/register" method="POST">
+        <div class="info">
+            <article>
+                <p>註冊</p>
+                <center>
+                <% if(status.length > 0) { %>
+                    <p><%= status %></p>
+                <% } %>
+                <div class="acco">
+                    <label for="userName">使用者帳號</label>
+                    <input type="text" name="userAccount" id="userName"  required/>
+                </div>
+                <div class="mail">
+                    <label for="userEmail">電子郵件</label>
+                    <input type="email" name="userEmail" id="userEmail"  required/>
+                </div>
+                <div class="userName">
+                    <label for="userName">姓名</label>
+                    <input type="text" name="user" id="userName" required/>
+                </div>
+                <div class="age">
+                    <label for="age">年齡</label>
+                    <input type="text" name="age" id="age" required/>
+                </div>
+                <div class="passw">
+                    <label for="userPassword">密碼</label>
+                    <input type="password" name="userPassword" id="userPassword" required/>
+                </div>
+                <div class="passw2">
+                    <label for="userConfirmPassword">確認密碼</label>
+                    <input type="password" id="userConfirmPassword" required/>
+                </div>
+                <div class="adminpassw">
+                    <label for="userConfirmAdminPassword">管理者密碼</label>
+                    <input type="password" name="adminPassword" id="userConfirmAdminPassword" required/>
+                </div><div class="adminpassw2">
+                    <label for="userConfirmAdminPassword">確認管理者密碼</label>
+                    <input type="password" id="userConfirmAdminPassword" required/>
+                </div>
+                
+                <input type="submit" value="申請註冊！" id="register" >
+                <p></p></center>
+            </article>
+        </div>
+    </form>  
+</body>
+</html>

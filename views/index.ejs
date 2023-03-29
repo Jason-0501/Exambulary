@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <% if (data.length > 0) { %>
+        <% data.forEach(data => { %>
+          <p>單字: <%= data.chinese %></p>
+          <p>字數: <%= data.length %></p>
+        <% }) %>
+    <% } else { %>
+        <p>There are no vocabulary to disaplay...</p>
+    <% } %>
+  </body>
+</html>

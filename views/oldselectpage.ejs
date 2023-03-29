@@ -1,0 +1,69 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/oldselectpage.css">
+</head>
+<body>
+  <label for="select" class="select">Select Unit</label>
+  <form action="/user/study" method="POST">
+    <label for="unitNum">Select Unit:</label>
+    <select id="unitNum" name="unitNum">
+        <option value=1> Unit 1</option>
+        <option value=2> Unit 2</option>
+        <option value=3> Unit 3</option>
+        <option value=4> Unit 4</option>
+        <option value=5> Unit 5</option>
+        <option value=6> Unit 6</option>
+        <option value=7> Unit 7</option>
+        <option value=8> Unit 8</option>
+        <option value=9> Unit 9</option>
+        <option value=10> Unit 10</option>
+        <option value=11> Unit 11</option>
+        <option value=12> Unit 12</option>
+        <option value=13> Unit 13</option>
+        <option value=14> Unit 14</option>
+        <option value=15> Unit 15</option>
+        <option value=16> Unit 16</option>
+        <option value=17> Unit 17</option>
+        <option value=18> Unit 18</option>
+        <option value=19> Unit 19</option>
+        <option value=20> Unit 20</option>
+        <option value=21> Unit 21</option>
+        <option value=22> Unit 22</option>
+        <option value=23> Unit 23</option>
+        <option value=24> Unit 24</option>
+        <option value=25> Unit 25</option>
+        <option value=26> Unit 26</option>
+        <option value=27> Unit 27</option>
+        <option value=28> Unit 28</option>
+        <option value=29> Unit 29</option>
+        <option value=30> Unit 30</option>
+        <option value=31> Unit 31</option>
+        <option value=32> Unit 32</option>
+        <option value=33> Unit 33</option>
+        <option value=34> Unit 34</option>
+        <option value=35> Unit 35</option>
+        <option value=36> Unit 36</option>
+        <option value=37> Unit 37</option>
+    </select>
+    <label for="testAmount">Select Number of Questions:</label>
+    <select id="testAmount" name="testAmount">
+      <option value=1> 1</option>
+      <option value=3> Matt's 8===D</option>
+      <option value=10> 10</option>
+      <option value=30> 30</option>
+      <option value=50> 50</option>
+    </select>
+    <input type="submit" id="btn" value="Start Quiz" onmouseover="changeColor()" onmouseout="changeColorBack()">
+  </form>
+  <script>
+    function changeColor(){
+        var btn=document.getElementById("btn")
+        btn.style="background:#B0C4DE	"
+    }
+    function changeColorBack(){
+        var btn=document.getElementById("btn")
+        btn.style="background:#e7effc"
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  font-family: IBM Plex Mono;
+}
+
+html {
+  background: #d3e1f7;
+}
+
+.filter {
+  position: absolute;
+  left: 0;
+  margin-top: -15%;
+  right: 0;
+  height: 150%;
+  z-index: 0;
+  background: #d3e1f7;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e94ca1", endColorstr="#c74ae9", GradientType=1);
+  opacity: .7;
+}
+
+table {
+  margin-top: 20%;
+ 
+  position: absolute;
+  z-index: 0; 
+  left: 20%;
+  right:20%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  box-shadow: 0 2px 15px rgba(64, 64, 64, .7);
+  border-radius: 12px 12px 0 0;
+  
+}
+
+td,
+th {
+  overflow: auto;
+  padding: 15px 20px;
+  text-align: center;
+  
+}
+th {
+  background-color: #a7c3ef;
+  color: rgba(64, 64, 64, .7);
+  font-family: IBM Plex Mono;
+  font-weight: 200;
+  font-size: 150%;
+  text-transform: uppercase;
+}
+
+tr {
+  width: 100%;
+  background-color: #fafafa;
+  font-family: IBM Plex Mono;
+  overflow: auto;
+}
+
+tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+
+h1 {
+  font-family: IBM Plex Mono;
+}
+
+body {
+  padding-top: 5%;
+}
+a{
+  padding-top: 0%;
+  display:flex;
+  flex-wrap: wrap;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  height:8%;
+  overflow: hidden;
+  color:	#9D9D9D;
+  font-family: IBM Plex Mono;
+  font-size: 100%;
+}

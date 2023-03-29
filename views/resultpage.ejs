@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="/stylesheets/resultpage.css">
+<body>
+<h1>測驗結束</h1>
+<br></br><br></br>
+<h2 id="OX">Total: O: X: </h2>
+<div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front" id="front">
+        正面文字
+      </div>
+      <div class="flip-card-back" id="back">
+        背面文字
+      </div>
+    </div>
+  </div>
+  <div style="white-space:nowrap">
+    <button type="button" id="previousBtn" onclick="previousPage()" onmouseover="previousChangeColor()" onmouseout="changeColorBack()">上一題</button>
+    <button type="button" id="homeBtn" onclick="window.location.href='/user/homepage'" onmouseover="homeChangeColor()" onmouseout="changeColorBack()">Home</button>
+    <button type="button" id="nextBtn" onclick="nextPage()" onmouseover="nextChangeColor()" onmouseout="changeColorBack()">下一題</button>  
+</div> 
+<a type="button" class="logout" href="/user/logout" onclick="return isLogout()">Logout</a>
+  <script>   
+    function isLogout(){
+      var isLogout=confirm('您確定要登出嗎?')
+      if(isLogout){
+        return true
+      }else{
+        return false
+      }    
+    }
+    window.history.forward();
+    let data = JSON.parse(`<%-JSON.stringify(data)%>`)
+    let totalNum="<%= totalNum%>";
+    let resultArray=new Array(totalNum);
+    let OX=document.getElementById("OX")
+    OX.innerHTML="Total:"+"<%= totalNum%>"+" O:"+"<%= correctNum%>"+" X:"+"<%= wrongNum%>";
+    for(i=0;i<totalNum;i++){
+      resultArray[i]=new Array()
+    }
+    for(i=0;i<totalNum;i++){
+      resultArray[i][0]="<%= correctNum%>"
+      resultArray[i][1]="<%= wrongNum%>"
+    }
+   var front=document.getElementById("front")
+   var back=document.getElementById("back")
+   var previousBtn = document.getElementById("previousBtn")
+   var nextBtn = document.getElementById("nextBtn")
+   var index=0;
+   var tf=trueOrfalse(data[0].TrueOrFalse)
+   front.innerHTML=data[0].word+"<br></br>"+data[0].chinese+"<br></br>"+data[0].kk+"<br></br>"+"下次出現日期:"+data[0].year+"/"+data[0].month+"/"+data[0].day
+  back.innerHTML=tf+"<br></br>Your answer: "+data[0].answer+"<br><br>Correct answer: "+data[0].word  
+   previousBtn.style="visibility: hidden;"  
+   function nextPage(){
+    index++
+    front.innerHTML=data[index].word+"<br></br>"+data[index].chinese+"<br></br>"+data[index].kk+"<br></br>"+"下次出現日期:"+data[index].year+"/"+data[index].month+"/"+data[index].day
+    back.innerHTML=trueOrfalse(data[index].TrueOrFalse)+"<br></br>Your answer: "+data[index].answer+"<br><br>Correct answer: "+data[index].word
+    previousBtn.style=""
+    if(index==data.length-1){
+      nextBtn.style="visibility: hidden;"
+    }
+   }
+   function previousPage(){
+    index--
+    front.innerHTML=data[index].word+"<br></br>"+data[index].chinese+"<br></br>"+data[index].kk+"<br></br>"+"下次出現日期:"+data[index].year+"/"+data[index].month+"/"+data[index].day
+    back.innerHTML=trueOrfalse(data[index].TrueOrFalse)+"<br></br>Your answer: "+data[index].answer+"<br><br>Correct answer: "+data[index].word
+    nextBtn.style=""
+    if(index == 0){
+      previousBtn.style="visibility: hidden;"
+    }
+   }
+   function trueOrfalse(tf){
+    if(tf == true){
+      return "答對了!您真棒"
+    }else{
+      return "答錯了!再加油"
+    }
+   }
+   function homeChangeColor(){
+        
+        var h=document.getElementById("homeBtn")
+        h.style="background:#D3D3D3"
+       
+    }
+    function previousChangeColor(){
+        var p=document.getElementById("previousBtn")
+        p.style="background:#D3D3D3"
+       
+    }
+    function nextChangeColor(){
+       
+        var n=document.getElementById("nextBtn")
+       
+        n.style="background:#D3D3D3"
+       
+    }
+    function changeColorBack(){
+        var p=document.getElementById("previousBtn")
+        var n=document.getElementById("nextBtn")
+        var h=document.getElementById("homeBtn")
+        h.style="background: #89bcde" 
+        n.style.background="#89bcde" 
+        p.style.background="#89bcde" 
+    }
+  </script>
+</body>

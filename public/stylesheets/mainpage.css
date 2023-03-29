@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+header{
+    padding-top: 10%;
+    display:flex;
+    flex-wrap: wrap;
+    height: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    height:8%;
+    overflow: hidden;
+    color:	#9D9D9D;
+    font-family: Arial Narrow, sans-serif;
+    font-size: 60%;
+}
+.html,body{
+    height:100%;
+    margin:0px;
+}
+.container{
+    display:flex;
+    flex-wrap: wrap;
+    height: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+.bar {
+    width:80px;
+    height:320px;
+    font-size: 150%;
+    transition: all 0.5s, font-size 0s;
+    writing-mode: vertical-lr ;
+    text-align:center;
+    line-height: 75px;
+    overflow: hidden;
+    font-family: IBM Plex Mono;
+    color:gray;
+}
+.bar:hover {
+    font-size: 0;
+    transform: scaleX(4) scaleY(1.1);
+    z-index: 1;
+}
+p{
+    padding-top: 10%;
+    display:flex;
+    flex-wrap: wrap;
+    height: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    height:8%;
+    overflow: hidden;
+    color:	#9D9D9D;
+    font-family: IBM Plex Mono;
+    font-size: 100%;
+}
+a{
+    padding-top: 0%;
+    display:flex;
+    flex-wrap: wrap;
+    height: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    height:8%;
+    overflow: hidden;
+    color:	#9D9D9D;
+    font-family: IBM Plex Mono;
+    font-size: 100%;
+}

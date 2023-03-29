@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="description" content="Tech Bike">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/loginpage.css">
+    <script type = "text/javascript" src="loginpage.js"></script>
+</head>
+<body>
+    <form  id="form" name="form" action="/api/login" method="POST">
+        <div class="info">
+            <article>
+                <p>登入</p>
+                <center><div class="acco">
+                    <label>帳號</label>
+                    <input type="text" name="userAccount" required>
+                </div>
+                <span></span>
+                <div class="passw">
+                    <label>密碼</label>
+                    <input type="password" name="userPassword" required>
+                </div>
+                <button type="submit" name="">登入！</button>
+                <% if(status.length > 0) { %>
+                    <h1><%= status %></h1>
+                <% } %>
+                <br></br>
+                <a class="button"  href="/api/register">Register</a>
+                <p></p></center>
+        </div>
+    </form>  
+</body>
+</html>

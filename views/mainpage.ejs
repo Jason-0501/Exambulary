@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/stylesheets/mainpage.css">
+  <script type = "text/javascript" src="/javascripts/mainpage.js"></script>
+</head>
+<form action="/admin/login" method="POST" id="form" >
+  <input type="text" style="visibility:hidden;" id="pwd" name="adminPassword"></input>
+  <button type="submit" id="submitBtn" style="visibility: hidden;"></button>
+</form>
+<body>
+  <header id="header"><h1>Exambulary</h1></header>
+  <div class="container">
+    <div class="bar" id="bar1" style=" background-color: #f4f7fd;" onclick="location.href='/user/select'">
+    <!-- <img src="/images/learning.svg" style="width:50px;height:50px;left:520px;top:200px;"/> -->
+    學習</div>
+    <div class="bar" id="bar2"style="background-color: #e9f0fb;" onclick="location.href='/user/randomselect'">
+      <!-- <img src="/images/test.svg" style="width:50px;height:50px;left:600px;top:200px;"/> -->
+      測驗</div>
+    <div class="bar" id="bar3"style="background-color: #d3e1f7;" onclick="location.href='/user/select'">
+      <!-- <img src="/images/file.svg" style="width:50px;height:50px;left:680px;top:200px;"/> -->
+      紀錄</div>
+    <div class="bar" id="bar4"style="background-color: #c8d9f5;" onclick="location.href='/user/selectwordsheet'">
+      <!-- <img src="/images/book.svg" style="width:50px;height:50px;left:760px;top:200px;"/> -->
+      單字表</div>
+    <div class="bar" id="bar5"style="background-color: #b2caf1;" onclick="adminLogin()">
+      <!-- <img src="/images/user.svg" style="width:50px;height:50px;left:840px;top:200px;"/> -->
+      管理員</div>
+    <div class="bar" id="bar6"style="background-color: #a7c3ef;" onclick="location.href='/user/select'"></div>
+  </div>
+  
+  <p>歡迎登入 <%= username %></p>
+  <a type="button" href="/user/logout" onclick="return isLogout()">Logout</a>
+  
+  <script> 
+    let status="<%= status %>" 
+    if(status == "false"){
+      alert("管理員密碼錯誤")
+    }
+    function isLogout(){
+      var isLogout=confirm('您確定要登出嗎?')
+      if(isLogout){
+        return true
+      }else{
+        return false
+      }    
+    }
+    function adminLogin(){
+      var form = document.getElementById("form")
+      var adminPassword=document.getElementById("pwd")
+      var btn=document.getElementById("submitBtn")
+      let pwd=prompt("請輸入管理員密碼")
+      if(pwd == null){
+        return
+      }else{
+      console.log(status)
+      adminPassword.value=pwd;
+      form.onsubmit="return true";
+      btn.click();
+    }
+    
+  }
+  </script>
+</body>
+</html>

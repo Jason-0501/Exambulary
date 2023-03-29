@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>AdminPage</title>
+  <link rel="stylesheet" href="/stylesheets/sheetpage.css">
+</head>
+
+<body>
+  <center>
+    <h1>Admin Page</h1>
+    
+  </center>
+  <div class="filter">
+    <div id="table-container">
+      <table id="my-table">
+        <thead>
+          <tr>
+            <th>日期</th>
+            <th>測驗單元</th>
+            <th>總題數</th>
+            <th>答對題數</th>
+            <th>錯誤題數</th>
+            <th>獲得代幣數</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        
+      </table>
+    </div>  
+    <a href="/admin/logout" onclick="return isLogout()">Logout</a>
+  </div>
+    <script>
+    function isLogout(){
+      var isLogout=confirm('您確定要登出嗎?')
+      if(isLogout){
+        return true
+      }else{
+        return false
+      }
+    }
+    </script>
+</body>
+<script>
+  const tableBody = document.querySelector("#my-table tbody");
+  let data = JSON.parse(`<%-JSON.stringify(data)%>`)
+  for (let i = 0; i < data.length; i++) {
+    var j = 0;
+    const row = document.createElement("tr");
+    const cell1 = document.createElement("td");
+    cell1.id = 'A' + i + j
+    const cell2 = document.createElement("td");
+    cell2.id = 'A' + i + (j + 1)
+    const cell3 = document.createElement("td");
+    cell3.id = 'A' + i + (j + 2)
+    const cell4 = document.createElement("td");
+    cell4.id = 'A' + i + (j + 3)
+    const cell5 = document.createElement("td");
+    cell5.id = 'A' + i + (j + 4)
+    const cell6 = document.createElement("td");
+    cell6.id = 'A' + i + (j + 5)
+    
+    row.appendChild(cell1);
+    row.appendChild(cell2);
+    row.appendChild(cell3);
+    row.appendChild(cell4);
+    row.appendChild(cell5);
+    row.appendChild(cell6);
+    tableBody.appendChild(row);
+    j++;
+  }
+  for (let i = 0; i < data.length; i++) {
+    document.getElementById('A' + i + 0).innerHTML = data[i].year+"/"+data[i].month+"/"+data[i].day
+    document.getElementById('A' + i + 1).innerHTML = data[i].unitNum
+    document.getElementById('A' + i + 2).innerHTML = data[i].totalNum
+    document.getElementById('A' + i + 3).innerHTML = data[i].correctNum
+    document.getElementById('A' + i + 4).innerHTML = data[i].wrongNum
+    document.getElementById('A' + i + 5).innerHTML = data[i].coin
+
+  }
+  
+</script>
+
+</html>
